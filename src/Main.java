@@ -4,45 +4,35 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Задача 1");
         byte clientOs = 1;
-        switch (clientOs) {
-            case 0:
-                System.out.println("Установите версию приложения для iOS по ссылке");
-                break;
-            case 1:
-                System.out.println("Установите версию приложения для Android по ссылке");
-                break;
+        if (clientOs == 0) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
+
         System.out.println("Задача 2");
-        short clientDeviceYear = 2015;
-        clientOs = 1;
+        short clientDeviceYear = 2012;
+        clientOs = 0;
+        String operationSystem;
+        if (clientOs == 0) {
+            operationSystem = "iOS";
+        } else {
+            operationSystem = "Android";
+        }
         boolean newDevice = clientDeviceYear >= 2015;
-                if (newDevice) {
-            switch (clientOs) {
-                case 0:
-                    System.out.println("Установите версию приложения для iOS по ссылке");
-                    break;
-                case 1:
-                    System.out.println("Установите версию приложения для Android по ссылке");
-                    break;
-            }
-        }  else {
-            switch (clientOs) {
-                case 0:
-                    System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
-                    break;
-                case 1:
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке.");
-                    break;
-            }
+        if (newDevice) {
+            System.out.println("Установите версию приложения для " + operationSystem + " по ссылке");
+        } else {
+            System.out.println("Установите облегченную версию приложения для " + operationSystem + " по ссылке.");
 
         }
+
+
         System.out.println("Задача 3");
-        short year = 1700;
-        boolean leapYear = (year - 1580) % 4 == 0 && year % 100 != 0;
+        short year = 1705;
+        boolean leapYear = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
         if (year > 1584) {
-            if (year % 400 == 0) {
-                System.out.println(year + " год является високосным.");
-            } else if (leapYear) {
+            if (leapYear) {
                 System.out.println(year + " год является високосным.");
             } else {
                 System.out.println(year + " год не является високосным.");
@@ -54,9 +44,9 @@ public class Main {
         byte deliveryTime;
         if (deliveryDistance < 20) {
             deliveryTime = 1;
-        } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
+        } else if (deliveryDistance < 60) {
             deliveryTime = 2;
-        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
+        } else if (deliveryDistance < 100) {
             deliveryTime = 3;
         } else {
             deliveryTime = 4;
@@ -83,12 +73,12 @@ public class Main {
             case 6:
             case 7:
             case 8:
-                System.out.println("Это весенний месяц");
+                System.out.println("Это летний месяц");
                 break;
             case 9:
             case 10:
             case 11:
-                System.out.println("Это весенний месяц");
+                System.out.println("Это осенний месяц");
                 break;
             default:
                 System.out.println("Такого месяца нет");
